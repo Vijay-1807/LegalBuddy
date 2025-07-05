@@ -1,0 +1,561 @@
+/* Reset default margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+.animated-gradient {
+  background: linear-gradient(270deg, #a3bffa, #f687b3, #9f7aea, #f687b3, #a3bffa);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 5s ease infinite;
+  display: inline-block;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Full page container */
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('https://img.freepik.com/premium-photo/low-key-filter-wooden-judge-s-gavel-law-book-golden-scale-wood-background_34259-440.jpg'); /* Set background image */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  font-family: 'Roboto', sans-serif;
+  color: #e0e0e0; /* Light grey text for better contrast on dark background */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem; /* Add padding for smaller screens */
+  overflow: auto; /* Allow scrolling within the container if content overflows */
+}
+
+/* Removed decorative elements as they are not in the provided image */
+/*
+.auth-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(66, 133, 244, 0.1) 0%, rgba(66, 133, 244, 0) 70%);
+  animation: rotateBackground 20s linear infinite;
+}
+
+@keyframes rotateBackground {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+*/
+
+/* Dark theme for auth pages - Can be toggled with a class on auth-container if needed */
+.auth-container.dark-theme {
+  background-image: url('https://img.freepik.com/premium-photo/low-key-filter-wooden-judge-s-gavel-law-book-golden-scale-wood-background_34259-440.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #F8F9FA;
+}
+
+.auth-box {
+  background-color: rgba(30, 30, 30, 0.9); /* Darker, slightly more opaque background */
+  padding: 3rem; /* Increased padding */
+  border-radius: 12px; /* Slightly less rounded corners */
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7); /* Stronger, darker shadow */
+  width: 100%; /* Allow width to adjust to padding */
+  max-width: 400px; /* Slightly less wide max-width for a more balanced look */
+  transform: translateY(0);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Springy transition */
+  backdrop-filter: blur(12px); /* Increased blur for glassmorphism */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+  color: #e0e0e0; /* Light grey text */
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+}
+
+.auth-container.dark-theme .auth-box {
+  background-color: rgba(10, 10, 10, 0.9); /* Even darker background in dark mode */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.9); /* Even stronger shadow */
+}
+
+.auth-box:hover {
+  transform: translateY(-10px) scale(1.02); /* More prominent lift and scale */
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5); /* Larger, more diffused shadow on hover */
+}
+
+.auth-container.dark-theme .auth-box:hover {
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 1); /* Darker shadow on hover */
+}
+
+.auth-title {
+  color: #F8F8F8; /* Very light grey for title */
+  margin-bottom: 3rem; /* Increased bottom margin */
+  text-align: center;
+  font-size: 2.8rem; /* Larger font size */
+  font-weight: 700; /* Bolder font weight */
+  position: relative;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Stronger text shadow */
+}
+
+.auth-container.dark-theme .auth-title {
+  color: #F8F8F8;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.auth-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px; /* Adjusted position */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px; /* Wider underline */
+  height: 6px; /* Thicker underline */
+  background: linear-gradient(to right, #4285F4, #34A853); /* Google brand colors gradient */
+  border-radius: 3px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem; /* Increased gap between form elements */
+  width: 100%;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 1.4rem 1.6rem; /* Increased padding */
+  border: 1px solid #555; /* Darker Border */
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #444; /* Darker background for input */
+  color: #F8F8F8; /* Very light grey text */
+  caret-color: #4285F4; /* Blue cursor */
+}
+
+.auth-container.dark-theme .auth-input {
+  background-color: #555;
+  border-color: #777;
+  color: #F8F8F8;
+}
+
+.auth-input:focus {
+  border: 3px solid;
+  border-image: linear-gradient(to right, #0066ff, #ff3366) 1;
+  outline: none;
+  background-color: #555; /* Slightly lighter dark background on focus */
+  box-shadow: 0 0 0 5px rgba(66, 133, 244, 0.4); /* Larger Primary Accent shadow */
+  transform: translateY(-3px); /* More prominent lift on focus */
+}
+
+.auth-container.dark-theme .auth-input:focus {
+  background-color: #666;
+  border-color: #4285F4;
+  box-shadow: 0 0 0 5px rgba(66, 133, 244, 0.5);
+}
+
+.auth-input::placeholder {
+  color: #b0b0b0; /* Lighter gray for placeholder */
+  opacity: 1;
+}
+
+.auth-container.dark-theme .auth-input::placeholder {
+  color: #b0b0b0;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 1.2rem; /* Adjusted padding */
+  background: linear-gradient(to right, #0066ff, #ff3366); /* Keep gradient */
+  color: white; /* White text */
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1.5px; /* Increased letter spacing */
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Slightly larger shadow */
+}
+
+.auth-button:hover {
+  background: linear-gradient(to right, #0052cc, #cc2952); /* Darker gradient on hover */
+  transform: translateY(-3px); /* More prominent lift on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Larger shadow on hover */
+}
+
+.auth-button:active {
+  transform: translateY(0); /* Press down */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Smaller shadow when active */
+}
+
+.auth-button:disabled {
+  background: #DADCE0;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.5; /* More transparent when disabled */
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.5rem 0; /* Adjusted margin for better spacing */
+  width: 100%;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-container.dark-theme .auth-divider::before,
+.auth-container.dark-theme .auth-divider::after {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.auth-divider span {
+  padding: 0 1rem;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.auth-container.dark-theme .auth-divider span {
+  color: #999;
+}
+
+.auth-buttons-container {
+  display: flex;
+  gap: 1rem; /* Space between buttons */
+  width: 100%;
+  margin-top: 1rem; /* Space above the buttons */
+}
+
+.google-auth-button, .github-auth-button {
+  flex: 1; /* Allow buttons to grow and share space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.2rem; /* Consistent padding */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  gap: 0.5rem; /* Space between icon and text */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); /* Subtle shadow */
+  height: 45px; /* Explicit height for consistent size */
+}
+
+.google-auth-button {
+  background-color: #ffffff;
+  border: 1px solid #dadce0;
+  color: #3c4043;
+}
+
+.auth-container.dark-theme .google-auth-button {
+  background-color: #ffffff;
+  border-color: #dadce0;
+  color: #3c4043;
+}
+
+.google-auth-button:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  border-color: #dadce0;
+}
+
+.auth-container.dark-theme .google-auth-button:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.google-auth-button:active {
+  background-color: #f1f3f4;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.github-auth-button {
+  background-color: #24292e;
+  border: 1px solid #24292e;
+  color: #ffffff;
+}
+
+.auth-container.dark-theme .github-auth-button {
+  background-color: #24292e;
+  border-color: #24292e;
+  color: #ffffff;
+}
+
+.github-auth-button:hover {
+  background-color: #2f363d;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  border-color: #2f363d;
+}
+
+.auth-container.dark-theme .github-auth-button:hover {
+  background-color: #2f363d;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.github-auth-button:active {
+  background-color: #1b1f23;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.google-icon, .github-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 0;
+}
+
+.github-icon {
+  filter: invert(1);
+}
+
+.auth-link {
+  margin-top: 2.5rem; /* Increased top margin */
+  text-align: center;
+  color: #b0b0b0; /* Light gray for link text */
+  font-size: 1rem;
+}
+
+.auth-container.dark-theme .auth-link {
+  color: #b0b0b0;
+}
+
+.auth-link a {
+  color: #4285F4; /* Primary Accent */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  margin-left: 0.5rem;
+}
+
+.auth-link a:hover {
+  color: #3367D6; /* Darker Primary Accent */
+  text-decoration: underline;
+}
+
+.error-message {
+  color: #FAD2CF; /* Light red for errors */
+  background-color: rgba(217, 48, 37, 0.25); /* Slightly more opaque dark red background */
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  border: 1px solid #F28B82; /* Darker red border */
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 0.5rem;
+  }
+
+  .auth-box {
+    padding: 2rem;
+    margin: 0;
+    border-radius: 10px;
+  }
+
+  .auth-title {
+    font-size: 2rem;
+  }
+
+  .auth-input {
+    padding: 1rem 1.2rem;
+  }
+
+  .auth-button,
+  .google-auth-button {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .auth-link {
+    font-size: 0.9rem;
+  }
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.input-error {
+  color: #ff3366;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+.auth-input.error {
+  border-color: #ff3366;
+  background-color: rgba(255, 51, 102, 0.1);
+}
+
+.password-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1.2rem;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+  color: #0066ff;
+}
+
+.remember-me {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+}
+
+.remember-me label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.remember-me input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #0066ff;
+}
+
+.forgot-password {
+  color: #0066ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #ff3366;
+  text-decoration: underline;
+}
+
+.success-message {
+  color: #34A853;
+  background-color: rgba(52, 168, 83, 0.1);
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border: 1px solid #34A853;
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-subtitle {
+  color: #b0b0b0;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reset-success {
+  text-align: center;
+  padding: 1.5rem;
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.success-text {
+  color: #34A853;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.email-note {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.loading-spinner {
+  display: inline-block;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.loading-spinner::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+} 
