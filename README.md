@@ -35,25 +35,44 @@ This project uses:
 
 ---
 
-## 🛠️ Installation & Setup
+# 🛠️ Installation & Setup
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/your-username/legalbuddy.git
-   cd legalbuddy
-2. **✅ Install Frontend Dependencies**
+## 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/legalbuddy.git
+cd legalbuddy
+```
 
+## 2. Install Frontend Dependencies
 ```bash
 cd client  # or your frontend folder
 npm install
 npm run dev
-3. **✅ Install Backend Dependencies**
+```
+
+## 3. Install Backend Dependencies
+```bash
 cd ../server  # or your backend folder
 npm install
 npm start
-4. ** Install Python RAG Services**
+```
+
+## 4. Install Python RAG Services
+```bash
 cd ../rag-services
 pip install -r requirements.txt
 python app.py
+```
 
+## 5. ✅ Set Environment Variables
 
+### Python `.env` file (in rag-services folder)
+```env
+GEMINI_API_KEY_1=your-gemini-api-key
+GEMINI_API_KEY_2=your-second-gemini-api-key
+```
+
+### Node.js `.env` file (in server folder)
+```env
+PORT=5000
+```
