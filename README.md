@@ -1,12 +1,59 @@
-# React + Vite
+# LegalBuddy: An AI-Powered Legal Assistant
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🧠 LegalBuddy: AI-Powered Legal Assistant
 
-Currently, two official plugins are available:
+LegalBuddy is a full-stack AI/ML-based LegalTech application that assists users by retrieving relevant legal information, case references, and simplified legal insights using **RAG (Retrieval-Augmented Generation)** and **Gemini LLM APIs**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project uses:
+- 💻 **Frontend**: React + Vite  
+- 🌐 **Backend**: Node.js  
+- 🧠 **AI Layer**: Python (for RAG services) + Gemini APIs (Google Generative AI)  
+- 🧾 **Domain**: LegalTech (Legal AI Assistant)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+
+- 🔍 Ask legal queries in plain English
+- 🧠 RAG-powered legal document retrieval and summarization
+- 🌐 Gemini LLM API integration
+- 🗣️ Multilingual response support (optional)
+- 📄 Generates legal summaries, affidavits, judgments, and case insights
+- ⚙️ Full-stack integration with modern tech stack
+
+---
+
+## 🧰 Tech Stack
+
+| Layer        | Technology         |
+|--------------|--------------------|
+| Frontend     | React + Vite       |
+| Backend      | Node.js (Express)  |
+| AI Services  | Python (RAG)       |
+| LLM          | Gemini API (x2 Keys) |
+| Styling      | Tailwind CSS / Custom CSS |
+
+---
+
+## 🛠️ Installation & Setup
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/your-username/legalbuddy.git
+   cd legalbuddy
+2. **✅ Install Frontend Dependencies**
+
+```bash
+cd client  # or your frontend folder
+npm install
+npm run dev
+3. **✅ Install Backend Dependencies**
+cd ../server  # or your backend folder
+npm install
+npm start
+4. ** Install Python RAG Services**
+cd ../rag-services
+pip install -r requirements.txt
+python app.py
+
+
