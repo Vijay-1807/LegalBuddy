@@ -3,7 +3,7 @@ import { getAuth, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"; // 🔥 Add this
 
 const firebaseConfig = {
-YOUR _PROJECT_ID: "your-project-id",
+YOUR _PROJECT_ID: "_PROJECT_ID",
 };
 
 const app = initializeApp(firebaseConfig);
